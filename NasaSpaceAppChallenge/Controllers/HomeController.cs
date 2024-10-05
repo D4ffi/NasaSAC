@@ -1,6 +1,8 @@
+
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NasaSpaceAppChallenge.Models;
+using NasaSpaceAppChallenge.Services;
 
 namespace NasaSpaceAppChallenge.Controllers;
 
@@ -11,10 +13,11 @@ namespace NasaSpaceAppChallenge.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    
-    public HomeController(ILogger<HomeController> logger)
+    private readonly NeoRequest _neoRequest;
+    public HomeController(ILogger<HomeController> logger,NeoRequest neoRequest)
     {
         _logger = logger;
+        _neoRequest = neoRequest;
     }
     
     public IActionResult Index()

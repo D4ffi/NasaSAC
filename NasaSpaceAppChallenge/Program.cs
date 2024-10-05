@@ -16,6 +16,13 @@ builder.Services.AddHttpClient<INeoRequest, NeoRequest>(client =>
     
 } );
 
+// Configure HttpClient for NASA NEO API
+builder.Services.AddHttpClient("NasaNeoApi", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["NasaNeoApi:BaseUrl"]);
+    client.DefaultRequestHeaders.Add("api_key", builder.Configuration["NasaNeoApi:ApiKey"]);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,5 +43,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
