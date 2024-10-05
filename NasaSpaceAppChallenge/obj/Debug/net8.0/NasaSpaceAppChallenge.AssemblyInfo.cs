@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NasaSpaceAppChallenge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+004cffc8b99eb8e1e0e5f3bc20961d800ef26a4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d1d476319d13627e771ef806cb55111285bf3c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("NasaSpaceAppChallenge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NasaSpaceAppChallenge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
