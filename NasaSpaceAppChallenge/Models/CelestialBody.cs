@@ -1,6 +1,6 @@
 ﻿namespace NasaSpaceAppChallenge.Models
 {
-    public class asteroid
+    public class CelestialBody
     {
         public string Name { get; set; }
         public double Diameter { get; set; }

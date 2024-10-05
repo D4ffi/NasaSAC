@@ -1,7 +1,19 @@
+using NasaSpaceAppChallenge.Models;
+using NasaSpaceAppChallenge.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<INeoRequest, NeoRequest>(client =>
+{
+    var config = builder.Configuration.GetSection("NeoApi").Get<NeoApi>();
+    if (config != null)
+    {
+        client.BaseAddress = new Uri(config.BaseUrl);
+    }
+    
+} );
 
 var app = builder.Build();
 
