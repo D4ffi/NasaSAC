@@ -4,15 +4,19 @@ using NasaSpaceAppChallenge.Models;
 
 namespace NasaSpaceAppChallenge.Controllers;
 
+/*  Esta clase es el controlador principal de la aplicación.
+    Contiene las acciones que responden a las peticiones HTTP.
+    Las acciones son métodos que se ejecutan cuando se recibe una petición HTTP.
+ */
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
+    
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
     }
-
+    
     public IActionResult Index()
     {
         return View();
