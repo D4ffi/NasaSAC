@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/NasaSpaceAppChallenge.styles.css" asp-append-version="true"/>
+
+    <style>
+        body {
+            background-color: #1a237e; /* Dark blue background */
+        }
+        .navbar {
+            background-color: #42a5f5 !important; /* Light blue navbar */
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: white !important; /* White text for navbar links */
+        }
+        .navbar-light .navbar-brand {
+            color: white !important; /* White text for navbar brand */
+        }
+        .container {
+            background-color: white; /* White background for main content */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -37,11 +58,6 @@
 </div>
 <div id="threejs-container" style="width: 100%; height: 100%;"></div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - NasaSpaceAppChallenge - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="~/js/planet.js" asp-append-version="true"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

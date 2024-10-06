@@ -2,15 +2,51 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="centered-container">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-</div>
-    <body>
     <div id="scene-container"></div>
+    <style>
+        body {
+            background-color: #0a1128; /* Dark blue background */
+            color: #ffffff; /* White text for better contrast */
+        }
+        .navbar {
+            background-color: #42a5f5 !important; /* Light blue navbar */
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: white !important; /* White text for navbar links */
+        }
+        .navbar-light .navbar-brand {
+            color: white !important; /* White text for navbar brand */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for main content */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #scene-container {
+            width: 100%;
+            height: 80vh; /* Adjust the height as needed */
+            margin-top: 20px;
+        }
+        .centered-container {
+            text-align: center;
+        }
+        h1, p, a {
+            color: #ffffff; /* Ensure text is white for visibility */
+        }
+        a {
+            color: #42a5f5; /* Light blue for links */
+        }
+        a:hover {
+            color: #90caf9; /* Lighter blue for link hover state */
+        }
+    </style>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
+<script>
         // Set up the scene, camera, and renderer
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -28,9 +64,9 @@
         function createTextSprite(text) {
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
-            context.font = 'Bold 40px Arial';
+            context.font = 'Bold 20px Arial';
             context.fillStyle = 'rgb(255,255,255)';
-            context.fillText(text, 0, 40);
+            context.fillText(text, 0, 20);
 
             const texture = new THREE.CanvasTexture(canvas);
             texture.needsUpdate = true;
@@ -162,12 +198,15 @@
 
         animate();
 
-        // Handle window resizing
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
+        function resizeRenderer() {
+            const container = document.getElementById('scene-container');
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            camera.aspect = container.clientWidth / container.clientHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+        }
+
+        window.addEventListener('resize', resizeRenderer);
+        resizeRenderer();
 
         // Handle space key press
         window.addEventListener('keydown', (event) => {
@@ -212,8 +251,6 @@
             }
         }, { passive: false });
     </script>
-    </body>
-</div>
 
 <script>
     async function loadNasaFeed() {
