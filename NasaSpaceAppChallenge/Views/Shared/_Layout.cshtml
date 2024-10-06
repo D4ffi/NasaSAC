@@ -35,12 +35,15 @@
         @RenderBody()
     </main>
 </div>
+<div id="threejs-container" style="width: 100%; height: 100%;"></div>
 
 <footer class="border-top footer text-muted">
     <div class="container">
         &copy; 2024 - NasaSpaceAppChallenge - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="~/js/planet.js" asp-append-version="true"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
