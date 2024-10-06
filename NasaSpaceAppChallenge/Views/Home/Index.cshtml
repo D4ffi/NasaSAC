@@ -8,19 +8,159 @@
 </div>
 
 <div>
-    <button id="press"> Press me </button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Earth and NEO Orrery</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <style>
+            body { margin: 0; }
+            canvas { display: block; }
+            #info {
+                position: absolute;
+                top: 10px;
+                width: 100%;
+                text-align: center;
+                color: white;
+            }
+        </style>
+    </head>
+    <>
+    <div id="info">Earth and NEO Orrery</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+    </style>
+    <div id="info">Earth and NEO Orrery<br>Press right arrow to accelerate NEOs</div>
+    <script>
+        let scene, camera, renderer, earth, neos = [];
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+            pointLight.position.set(20, 20, 20);
+            scene.add(pointLight);
+
+            // Earth
+            const earthGeometry = new THREE.SphereGeometry(1, 32, 32);
+            const earthMaterial = new THREE.MeshPhongMaterial({color: 0x2233ff});
+            earth = new THREE.Mesh(earthGeometry, earthMaterial);
+            scene.add(earth);
+
+            // NEOs (simplified as small spheres)
+            for (let i = 0; i < 20; i++) {
+                const neoSize = Math.random() * 0.05 + 0.12;
+                const neoGeometry = new THREE.SphereGeometry(neoSize, 16, 16);
+                const neoMaterial = new THREE.MeshPhongMaterial({color: 0xffff00});
+                const neo = new THREE.Mesh(neoGeometry, neoMaterial);
+                neo.position.set(
+                    Math.random() * 20 - 10,
+                    Math.random() * 20 - 10,
+                    Math.random() * 20 - 10
+                );
+                neos.push(neo);
+                scene.add(neo);
+
+                // Add label for each NEO
+                const labelDiv = document.createElement('div');
+                labelDiv.className = 'label';
+                labelDiv.textContent = 'NEO';
+                labelDiv.style.position = 'absolute';
+                labelDiv.style.color = 'white';
+                document.body.appendChild(labelDiv);
+
+                // Update label position
+                const updateLabelPosition = () => {
+                    const vector = new THREE.Vector3();
+                    neo.getWorldPosition(vector);
+                    vector.project(camera);
+                    const x = (vector.x * 0.5 + 0.5 ) * window.innerWidth;
+                    const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
+                    labelDiv.style.left = `${x}px`;
+                    labelDiv.style.top = `${y}px`;
+                    labelDiv.style.display = vector.z < 1 ? 'block' : 'none';
+            
+                };
+
+                // Update label position on each frame
+                const animateLabel = () => {
+                    requestAnimationFrame(animateLabel);
+                    updateLabelPosition();
+                };
+                animateLabel();
+            }
+
+            // Position camera further away
+            camera.position.set(0, 0, 20);
+            camera.lookAt(scene.position);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            earth.rotation.y += 0.005;
+
+            // Simple NEO movement
+            neos.forEach(neo => {
+                neo.position.applyAxisAngle(new THREE.Vector3(0, 1, 0), 0.01);
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+
+        // Simple time control
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                neos.forEach(neo => {
+                    neo.position.applyAxisAngle(new THREE.Vector3(0, 1, 0), 0.1);
+                });
+            }
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </div>
 
 <script>
-    // Get the button element
-    var button = document.getElementById("press");
+    async function loadNasaFeed() {
+        try {
+            const response = await fetch('/Home/GetFeedFromNasa');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            console.log(data);
+            // Aquí puedes agregar el código para manejar los datos recibidos
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
 
-    // Add an event listener to the button
-    button.addEventListener("click", function() {
-        fetch('/Home/GetFeedFromNasa/')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
-    });
-</script>
+    // Llamar a la función para cargar los datos
+    
+    loadNasaFeed();
+</script> 

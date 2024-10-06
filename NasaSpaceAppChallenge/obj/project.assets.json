@@ -8,27 +8,26 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kiki_\\.nuget\\packages\\": {}
+    "/Users/daffi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\NasaSpaceAppChallenge.csproj",
+      "projectUniqueName": "/Users/daffi/RiderProjects/NasaSpaceAppChallenge/NasaSpaceAppChallenge/NasaSpaceAppChallenge.csproj",
       "projectName": "NasaSpaceAppChallenge",
-      "projectPath": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\NasaSpaceAppChallenge.csproj",
-      "packagesPath": "C:\\Users\\kiki_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\obj\\",
+      "projectPath": "/Users/daffi/RiderProjects/NasaSpaceAppChallenge/NasaSpaceAppChallenge/NasaSpaceAppChallenge.csproj",
+      "packagesPath": "/Users/daffi/.nuget/packages/",
+      "outputPath": "/Users/daffi/RiderProjects/NasaSpaceAppChallenge/NasaSpaceAppChallenge/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kiki_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/daffi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -69,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/daffi/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

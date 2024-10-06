@@ -40,9 +40,10 @@ public class HomeController : Controller
     {
         try
         {
-            var neoData = await _neoRequest.GetNeoFeed("2021-09-28", "2021-11-17");
+            var neoData = await _neoRequest.GetNeoFeed("2014-09-21", "2014-09-26");
             neoData.EnsureSuccessStatusCode();
             var neoresponse = await neoData.Content.ReadFromJsonAsync<NeoFeedResponse>();
+            Console.WriteLine(neoresponse);
             return Json(neoresponse);
         }
         catch (HttpRequestException ex)
