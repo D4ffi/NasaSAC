@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<INeoRequest, NeoRequest>();
+builder.Services.Configure<NeoApi>(builder.Configuration.GetSection("NeoApi"));
 builder.Services.AddHttpClient<INeoRequest, NeoRequest>(client =>
 {
     var config = builder.Configuration.GetSection("NeoApi").Get<NeoApi>();
@@ -13,15 +13,7 @@ builder.Services.AddHttpClient<INeoRequest, NeoRequest>(client =>
     {
         client.BaseAddress = new Uri(config.BaseUrl);
     }
-    
 } );
-
-// Configure HttpClient for NASA NEO API
-builder.Services.AddHttpClient("NasaNeoApi", client =>
-{
-    client.BaseAddress = new Uri(builder.Configuration["NasaNeoApi:BaseUrl"]);
-    client.DefaultRequestHeaders.Add("api_key", builder.Configuration["NasaNeoApi:ApiKey"]);
-});
 
 var app = builder.Build();
 
