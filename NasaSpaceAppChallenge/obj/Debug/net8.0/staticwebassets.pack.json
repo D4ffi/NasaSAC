@@ -13,8 +13,40 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\js\\earth.js",
-      "PackagePath": "staticwebassets\\js\\earth.js"
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture1.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture2.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture3.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture4.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture5.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture6.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\images\\planet_texture7.jpg",
+      "PackagePath": "staticwebassets\\images\\planet_texture7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\js\\planet.js",
+      "PackagePath": "staticwebassets\\js\\planet.js"
     },
     {
       "Id": "C:\\Users\\kiki_\\RiderProjects\\NasaSAC\\NasaSpaceAppChallenge\\wwwroot\\js\\site.js",
